@@ -10,7 +10,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        <style>
   /* Floating Feedback Button */
   .feedback-fab {
     position: fixed;
@@ -132,15 +131,7 @@
     box-shadow: 0 0 50px -10px rgba(99, 102, 241, 0.3);
   }
 </style>
-        .bg-grid {
-            background-size: 30px 30px;
-            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-        }
-        .glow-effect {
-            box-shadow: 0 0 50px -10px rgba(99, 102, 241, 0.3);
-        }
-    </style>
-    <script type="application/ld+json">
+       
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -294,7 +285,7 @@
       <div class="feedback-modal-content">
         <span id="close-feedback-modal" class="feedback-close">&times;</span>
         <h3>Send Website Feedback</h3>
-        <form id="website-feedback-form" action="YOUR_FORMSPREE_ENDPOINT_URL" method="POST">
+        <form id="website-feedback-form" action="https://formspree.io/f/xkqyzwvp" method="POST">
           <label for="fb-email">Your Email (optional):</label>
           <input type="email" id="fb-email" name="email" placeholder="name@example.com">
 
@@ -309,9 +300,58 @@
           <textarea id="fb-message" name="message" required placeholder="Write your feedback here..."></textarea>
 
           <button type="submit" class="feedback-submit-btn">Send</button>
-        </form>
-      </div>
+            </form>
     </div>
+  </div>
 
-  </body>
+  <!-- Feedback Logic JavaScript -->
+  <script>
+    const feedbackBtn = document.getElementById('website-feedback-btn');
+    const feedbackModal = document.getElementById('website-feedback-modal');
+    const closeFeedbackBtn = document.getElementById('close-feedback-modal');
+    const feedbackForm = document.getElementById('website-feedback-form');
+
+    // Open Modal
+    feedbackBtn.addEventListener('click', () => {
+      feedbackModal.classList.add('active');
+    });
+
+    // Close Modal when clicking X
+    closeFeedbackBtn.addEventListener('click', () => {
+      feedbackModal.classList.remove('active');
+    });
+
+    // Close Modal when clicking outside the modal box
+    window.addEventListener('click', (event) => {
+      if (event.target === feedbackModal) {
+        feedbackModal.classList.remove('active');
+      }
+    });
+
+    // Handle form submission without reloading the page
+    feedbackForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(feedbackForm);
+
+      try {
+        const response = await fetch(feedbackForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          alert('Thank you! Your feedback has been sent.');
+          feedbackForm.reset();
+          feedbackModal.classList.remove('active');
+        } else {
+          alert('There was an issue submitting your feedback. Please check your form setup.');
+        }
+      } catch (error) {
+        alert('Error connecting to the feedback server. Please try again later.');
+      }
+    });
+  </script>
+
+</body>
 </html>
