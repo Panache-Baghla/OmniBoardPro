@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniBoard Pro – Best Free Online Whiteboard Software for STEM & AI</title>
+    <meta name="description" content="OmniBoard Pro is the best free infinite whiteboard software built for STEM students, teachers, and researchers. Plot graphs, sketch equations, and collaborate free with no sign up." />
+    <meta name="keywords" content="omniboard, omniboard pro, free digital whiteboard, stem whiteboard, online infinite canvas, google ai studio whiteboard">
+    <link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+   <meta name="google-site-verification" content="KljMq1L2Ik2hiQ7dzJWv0Or3cZxLFIH1VTGnewwSBr0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+  /* Floating Feedback Button */
+  .feedback-fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    z-index: 999;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+
+  .feedback-fab:hover {
+    transform: scale(1.05);
+    background-color: #1d4ed8;
+  }
+
+  /* Modal Overlay */
+  .feedback-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .feedback-modal.active {
+    display: flex;
+  }
+
+  /* Modal Box */
+  .feedback-modal-content {
+    background: #0f172a;
+    color: #f8fafc;
+    padding: 24px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    border: 1px solid #334155;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  }
+
+  .feedback-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #94a3b8;
+  }
+
+  .feedback-close:hover {
+    color: #ffffff;
+  }
+
+  .feedback-modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .feedback-modal-content label {
+    font-size: 14px;
+    color: #cbd5e1;
+  }
+
+  .feedback-modal-content input,
+  .feedback-modal-content select,
+  .feedback-modal-content textarea {
+    width: 100%;
+    padding: 10px 12px;
+    background-color: #1e293b;
+    border: 1px solid #475569;
+    border-radius: 6px;
+    color: #ffffff;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+
+  .feedback-modal-content textarea {
+    resize: vertical;
+    min-height: 90px;
+  }
+
+  .feedback-submit-btn {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 8px;
+  }
+
+  .feedback-submit-btn:hover {
+    background-color: #1d4ed8;
+  }
+
+  .bg-grid {
+    background-size: 30px 30px;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  }
+
+  .glow-effect {
+    box-shadow: 0 0 50px -10px rgba(99, 102, 241, 0.3);
+  }
+</style>
+       <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "OmniBoard Pro",
+  "operatingSystem": "All",
+  "applicationCategory": "EducationalApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "The best free infinite digital whiteboard software for STEM students, teachers, and researchers."
+}
+</script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased bg-grid selection:bg-indigo-500 selection:text-white min-h-screen flex flex-col justify-between">
+
+    <!-- Header / Navbar -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800">
+    <h1 class="sr-only">OmniBoard Pro – Best Free Online Whiteboard Software for STEM</h1>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-cyan-400 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-indigo-500/20">
+                    <i class="fa-solid fa-pen-ruler"></i>
+                </div>
+                <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-indigo-300 bg-clip-text text-transparent">
+                    OmniBoard <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">PRO</span>
+                </span>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <span class="hidden sm:inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 mr-2 animate-pulse"></span> 100% Free Forever
+                </span>
+                <a href="https://omniboard-pro-infinite-whiteboard-stem-studio-195396865172.asia-southeast1.run.app/" 
+                   target="_blank" 
+                   class="bg-indigo-600 hover:bg-indigo-500 text-white font-medium px-5 py-2.5 rounded-xl transition duration-200 shadow-lg shadow-indigo-600/30 flex items-center space-x-2 text-sm">
+                    <span>Launch App</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="relative pt-12 pb-20 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm font-medium mb-6">
+                    <i class="fa-solid fa-wand-magic-sparkles text-indigo-400"></i>
+                    <span>Powered by Google AI Studio</span>
+                </div>
+                
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 max-w-4xl mx-auto leading-tight">
+                    The Infinite Digital Whiteboard Built for <span class="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">STEM Work</span>
+                </h1>
+                
+                <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-8">
+                    Sketch diagrams, solve equations, plot functions, and brainstorm ideas on an endless canvas. 100% free, zero ads, no login needed.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+                    <a href="https://omniboard-pro-infinite-whiteboard-stem-studio-195396865172.asia-southeast1.run.app/" 
+                       target="_blank" 
+                       class="w-full sm:w-auto bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white font-semibold px-8 py-4 rounded-xl transition duration-200 shadow-xl shadow-indigo-500/25 flex items-center justify-center space-x-3 text-lg">
+                        <i class="fa-solid fa-rocket"></i>
+                        <span>Open OmniBoard Free</span>
+                    </a>
+                </div>
+
+                <!-- Features Highlight Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto text-left mt-16">
+                    <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl">
+                        <div class="w-10 h-10 rounded-lg bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-4 text-xl">
+                            <i class="fa-solid fa-expand"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Infinite Canvas</h3>
+                        <p class="text-slate-400 text-sm">Pan and zoom infinitely without ever running out of room for complex derivations and diagrams.</p>
+                    </div>
+
+                    <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl">
+                        <div class="w-10 h-10 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-4 text-xl">
+                            <i class="fa-solid fa-square-root-variable"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">STEM Tools</h3>
+                        <p class="text-slate-400 text-sm">Designed specifically for math, physics, science problem solving, and graph plotting.</p>
+                    </div>
+
+                    <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4 text-xl">
+                            <i class="fa-solid fa-lock-open"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">100% Free Forever</h3>
+                        <p class="text-slate-400 text-sm">No subscriptions, no hidden paywalls, and no account registration required.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Instructions Section -->
+        <section class="py-16 bg-slate-900/40 border-t border-slate-800/80">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center text-white mb-10">How to Use OmniBoard Pro</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold shrink-0">1</div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-white mb-1">Click "Launch App"</h4>
+                            <p class="text-slate-400 text-sm">Open OmniBoard Pro directly in your browser. No downloads or sign-ups required.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold shrink-0">2</div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-white mb-1">Select Your Tools</h4>
+                            <p class="text-slate-400 text-sm">Use pens, highlighters, geometric shapes, and graph templates from the toolbar.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold shrink-0">3</div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-white mb-1">Leverage AI Assistance</h4>
+                            <p class="text-slate-400 text-sm">Utilize built-in Google AI Studio integration to help format formulas or analyze notes.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold shrink-0">4</div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-white mb-1">Export Your Work</h4>
+                            <p class="text-slate-400 text-sm">Save your whiteboard directly to your computer as high-resolution image files.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+   <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-950 py-8 text-center text-slate-500">
+      <p>© 2026 OmniBoard Pro. Built with Google AI Studio.</p>
+    </footer>
+
+    <!-- Floating Feedback Button -->
+    <button id="website-feedback-btn" class="feedback-fab">💬 Feedback</button>
+
+    <!-- Feedback Modal Popup -->
+    <div id="website-feedback-modal" class="feedback-modal">
+      <div class="feedback-modal-content">
+        <span id="close-feedback-modal" class="feedback-close">&times;</span>
+        <h3>Send Website Feedback</h3>
+        <form id="website-feedback-form" action="https://formspree.io/f/xjyklzgw" method="POST">
+          <label for="fb-email">Your Email (optional):</label>
+          <input type="email" id="fb-email" name="email" placeholder="name@example.com">
+
+          <label for="fb-category">Topic:</label>
+          <select id="fb-category" name="category">
+            <option value="general">General Feedback</option>
+            <option value="bug">Report a Website Issue</option>
+            <option value="feature">Feature Suggestion</option>
+          </select>
+
+          <label for="fb-message">Message:</label>
+          <textarea id="fb-message" name="message" required placeholder="Write your feedback here..."></textarea>
+
+          <button type="submit" class="feedback-submit-btn">Send</button>
+            </form>
+    </div>
+  </div>
+
+  <!-- Feedback Logic JavaScript -->
+  <script>
+    const feedbackBtn = document.getElementById('website-feedback-btn');
+    const feedbackModal = document.getElementById('website-feedback-modal');
+    const closeFeedbackBtn = document.getElementById('close-feedback-modal');
+    const feedbackForm = document.getElementById('website-feedback-form');
+
+    // Open Modal
+    feedbackBtn.addEventListener('click', () => {
+      feedbackModal.classList.add('active');
+    });
+
+    // Close Modal when clicking X
+    closeFeedbackBtn.addEventListener('click', () => {
+      feedbackModal.classList.remove('active');
+    });
+
+    // Close Modal when clicking outside the modal box
+    window.addEventListener('click', (event) => {
+      if (event.target === feedbackModal) {
+        feedbackModal.classList.remove('active');
+      }
+    });
+
+    // Handle form submission without reloading the page
+    feedbackForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(feedbackForm);
+
+      try {
+        const response = await fetch(feedbackForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          alert('Thank you! Your feedback has been sent.');
+          feedbackForm.reset();
+          feedbackModal.classList.remove('active');
+        } else {
+          alert('There was an issue submitting your feedback. Please check your form setup.');
+        }
+      } catch (error) {
+        alert('Error connecting to the feedback server. Please try again later.');
+      }
+    });
+  </script>
+
+</body>
+</html>
